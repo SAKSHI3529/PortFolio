@@ -60,76 +60,6 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "MyPolicyDukaan",
-      description: "Developed a React Native mobile application for an insurance consultancy that helps users explore insurance plans, connect with advisors, access financial services, and manage inquiries through an intuitive cross-platform mobile experience.",
-      fullDescription: "MyPolicyDukaan is a cross-platform mobile application developed using React Native to simplify insurance and financial service management. The app enables users to explore insurance plans, compare policies, connect with certified advisors, and access financial services through a modern, intuitive, and mobile-friendly interface. Designed with a focus on usability, the application provides seamless navigation, informative content, and quick customer support for a smooth digital experience.",
-      features: [
-        { icon: "📱", title: "Mobile Experience", desc: "Interactive onboarding and modern mobile-first user experience." },
-        { icon: "☂️", title: "Insurance Services", desc: "Explore Health, Life, Motor & Investment services." },
-        { icon: "🏢", title: "Company Info", desc: "Company information, certifications, and customer testimonials." },
-        { icon: "💬", title: "Support & Consultation", desc: "FAQ section and contact & consultation requests." },
-        { icon: "⚡", title: "Cross-Platform", desc: "Responsive cross-platform UI built with React Native." },
-        { icon: "🧭", title: "Navigation", desc: "Bottom tab navigation and intuitive category browsing." }
-      ],
-      contributions: [
-        "Designed and developed reusable React Native components.",
-        "Implemented multi-screen navigation using React Navigation.",
-        "Built responsive layouts for Android and iOS devices.",
-        "Developed onboarding, services, FAQ, contact, and about screens.",
-        "Integrated REST APIs for dynamic content and service information.",
-        "Optimized application performance and user experience.",
-        "Maintained clean, modular, and scalable code architecture."
-      ],
-      tech: ["React Native", "Expo", "JavaScript", "React Navigation", "Context API", "AsyncStorage", "REST APIs", "Git"],
-      image: "/projects/MyPolicyDukaan/localhost_8081_(iPhone SE).png",
-      screenshots: [
-        "/projects/MyPolicyDukaan/localhost_8081_(iPhone SE).png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010309.png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010335.png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010440.png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010501.png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010522.png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010538.png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010555.png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010611.png",
-        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010629.png"
-      ],
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Festora",
-      description: "A full-stack web application designed to streamline the management of college cultural events including event creation, participant registration, scheduling, judging, and result declaration.",
-      features: [
-        { icon: "🔐", title: "Role-Based Access Control", desc: "Admin, Faculty Coordinator, Event Coordinator, Judges, and Students workflows." },
-        { icon: "📝", title: "Event Management", desc: "Create, update, and manage multiple events smoothly." },
-        { icon: "👥", title: "Participant Registration", desc: "Students can register for events easily with dynamic forms." },
-        { icon: "📊", title: "Judging & Evaluation", desc: "Judges can assign scores and evaluate participants in real-time." },
-        { icon: "🗓️", title: "Scheduling System", desc: "Manage event timelines and prevent overlap coordination." },
-        { icon: "📢", title: "Result Declaration", desc: "Publish and broadcast results dynamically to all users." },
-      ],
-      architecture: [
-        "Presentation Layer – React frontend",
-        "Application Layer – Backend APIs (Python)",
-        "Data Layer – MongoDB"
-      ],
-      apiIntegration: [
-        "REST APIs handle secure communication between frontend and backend",
-        "Dynamic data flow for: Event details, User roles, Registrations, and Results"
-      ],
-      tech: ["React", "Python", "MongoDB", "REST APIs"],
-      image: "/projects/festora/1.jpeg",
-      screenshots: [
-        "/projects/festora/1.jpeg",
-        "/projects/festora/2.jpeg",
-        "/projects/festora/3.jpeg",
-        "/projects/festora/4.jpeg",
-        "/projects/festora/5.jpeg"
-      ],
-      github: "#",
-      live: "#"
-    },
-    {
       title: "MCare",
       description: "MCare is a responsive website developed for an NGO to strengthen its online presence and improve communication with donors, volunteers, and beneficiaries. The platform provides dynamic information about the organization's initiatives, programs, donation campaigns, and activities while offering a clean and user-friendly interface.",
       features: [
@@ -250,6 +180,76 @@ const Projects = () => {
         "/projects/MeatCity/localhost_5173_MeatCity_ (4).png",
         "/projects/MeatCity/localhost_5173_MeatCity_ (5).png",
         "/projects/MeatCity/localhost_5173_MeatCity_ (6).png"
+      ],
+      github: "#",
+      live: "#"
+    },
+    {
+      title: "MyPolicyDukaan",
+      description: "Developed a React Native mobile application for an insurance consultancy that helps users explore insurance plans, connect with advisors, access financial services, and manage inquiries through an intuitive cross-platform mobile experience.",
+      fullDescription: "MyPolicyDukaan is a cross-platform mobile application developed using React Native to simplify insurance and financial service management. The app enables users to explore insurance plans, compare policies, connect with certified advisors, and access financial services through a modern, intuitive, and mobile-friendly interface. Designed with a focus on usability, the application provides seamless navigation, informative content, and quick customer support for a smooth digital experience.",
+      features: [
+        { icon: "📱", title: "Mobile Experience", desc: "Interactive onboarding and modern mobile-first user experience." },
+        { icon: "☂️", title: "Insurance Services", desc: "Explore Health, Life, Motor & Investment services." },
+        { icon: "🏢", title: "Company Info", desc: "Company information, certifications, and customer testimonials." },
+        { icon: "💬", title: "Support & Consultation", desc: "FAQ section and contact & consultation requests." },
+        { icon: "⚡", title: "Cross-Platform", desc: "Responsive cross-platform UI built with React Native." },
+        { icon: "🧭", title: "Navigation", desc: "Bottom tab navigation and intuitive category browsing." }
+      ],
+      contributions: [
+        "Designed and developed reusable React Native components.",
+        "Implemented multi-screen navigation using React Navigation.",
+        "Built responsive layouts for Android and iOS devices.",
+        "Developed onboarding, services, FAQ, contact, and about screens.",
+        "Integrated REST APIs for dynamic content and service information.",
+        "Optimized application performance and user experience.",
+        "Maintained clean, modular, and scalable code architecture."
+      ],
+      tech: ["React Native", "Expo", "JavaScript", "React Navigation", "Context API", "AsyncStorage", "REST APIs", "Git"],
+      image: "/projects/MyPolicyDukaan/localhost_8081_(iPhone SE).png",
+      screenshots: [
+        "/projects/MyPolicyDukaan/localhost_8081_(iPhone SE).png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010309.png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010335.png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010440.png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010501.png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010522.png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010538.png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010555.png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010611.png",
+        "/projects/MyPolicyDukaan/Screenshot 2026-07-01 010629.png"
+      ],
+      github: "#",
+      live: "#"
+    },
+    {
+      title: "Festora",
+      description: "A full-stack web application designed to streamline the management of college cultural events including event creation, participant registration, scheduling, judging, and result declaration.",
+      features: [
+        { icon: "🔐", title: "Role-Based Access Control", desc: "Admin, Faculty Coordinator, Event Coordinator, Judges, and Students workflows." },
+        { icon: "📝", title: "Event Management", desc: "Create, update, and manage multiple events smoothly." },
+        { icon: "👥", title: "Participant Registration", desc: "Students can register for events easily with dynamic forms." },
+        { icon: "📊", title: "Judging & Evaluation", desc: "Judges can assign scores and evaluate participants in real-time." },
+        { icon: "🗓️", title: "Scheduling System", desc: "Manage event timelines and prevent overlap coordination." },
+        { icon: "📢", title: "Result Declaration", desc: "Publish and broadcast results dynamically to all users." },
+      ],
+      architecture: [
+        "Presentation Layer – React frontend",
+        "Application Layer – Backend APIs (Python)",
+        "Data Layer – MongoDB"
+      ],
+      apiIntegration: [
+        "REST APIs handle secure communication between frontend and backend",
+        "Dynamic data flow for: Event details, User roles, Registrations, and Results"
+      ],
+      tech: ["React", "Python", "MongoDB", "REST APIs"],
+      image: "/projects/festora/1.jpeg",
+      screenshots: [
+        "/projects/festora/1.jpeg",
+        "/projects/festora/2.jpeg",
+        "/projects/festora/3.jpeg",
+        "/projects/festora/4.jpeg",
+        "/projects/festora/5.jpeg"
       ],
       github: "#",
       live: "#"
