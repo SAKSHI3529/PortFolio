@@ -51,7 +51,7 @@ const About = () => {
               <div className="h-1 w-20 bg-accent rounded-full"></div>
             </div>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl text-left">
-              I'm a Software Developer with experience in designing and developing full-stack applications using modern technologies such as Java, Spring Boot, ReactJS, Node.js, MySQL, MongoDB, and REST APIs.
+              I'm a Software Developer with experience in designing and developing full-stack applications using modern technologies such as Java, Spring Boot,ReactJS, Node.js,ReactNative, MySQL, MongoDB, and REST APIs.
             </p>
           </motion.div>
 

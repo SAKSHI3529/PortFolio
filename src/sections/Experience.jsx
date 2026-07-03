@@ -8,7 +8,7 @@ const Experience = () => {
     {
       role: "Full Stack Developer",
       company: "VMV Tech Solutions",
-      duration: "June 2025 - Present",
+      duration: "June 2025 - June 2026",
       description: "Developed and maintained scalable backend services using RESTful APIs and SQL databases. Designed reusable backend components and optimized applications to improve scalability, reliability, and performance within an Agile environment.",
     }
   ];
