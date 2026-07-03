@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiMapPin, FiGithub, FiLinkedin, FiSend } from 'react-icons/fi';
 import SpotlightCard from '../components/SpotlightCard';
 
 const Contact = () => {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+    
+    // REPLACE THIS WITH YOUR WEB3FORMS ACCESS KEY
+    formData.append("access_key", "fca6427f-9997-4168-b295-edb13b82adb0");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Success! Your message has been sent.");
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      setResult("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background elements */}
@@ -83,13 +114,15 @@ const Contact = () => {
             className="lg:col-span-3"
           >
             <SpotlightCard className="p-8">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={onSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
                     <input 
                       type="text" 
                       id="name" 
+                      name="name"
+                      required
                       className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-charcoal border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all text-gray-900 dark:text-white"
                       placeholder="John Doe"
                     />
@@ -99,6 +132,8 @@ const Contact = () => {
                     <input 
                       type="email" 
                       id="email" 
+                      name="email"
+                      required
                       className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-charcoal border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all text-gray-900 dark:text-white"
                       placeholder="john@example.com"
                     />
@@ -109,6 +144,8 @@ const Contact = () => {
                   <input 
                     type="text" 
                     id="subject" 
+                    name="subject"
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-charcoal border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all text-gray-900 dark:text-white"
                     placeholder="Project Inquiry"
                   />
@@ -117,16 +154,26 @@ const Contact = () => {
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
                   <textarea 
                     id="message" 
+                    name="message"
+                    required
                     rows="5" 
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-charcoal border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all text-gray-900 dark:text-white resize-none"
                     placeholder="Hello, I'd like to talk about..."
                   ></textarea>
                 </div>
+                
+                {result && (
+                  <p className={`text-sm font-medium ${result.includes("Success") ? "text-green-500" : "text-gray-500"}`}>
+                    {result}
+                  </p>
+                )}
+
                 <button 
                   type="submit" 
-                  className="w-full py-4 bg-accent hover:bg-blue-700 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
+                  disabled={result === "Sending...."}
+                  className="w-full py-4 bg-accent hover:bg-blue-700 disabled:opacity-70 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2"
                 >
-                  Send Message <FiSend />
+                  {result === "Sending...." ? "Sending..." : "Send Message"} <FiSend />
                 </button>
               </form>
             </SpotlightCard>
