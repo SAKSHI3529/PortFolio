@@ -9,6 +9,7 @@ import Experience from './sections/Experience';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
 import CustomCursor from './components/CustomCursor';
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   return (
