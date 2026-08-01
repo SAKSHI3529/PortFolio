@@ -9,7 +9,13 @@ const Experience = () => {
       role: "Full Stack Developer",
       company: "VMV Tech Solutions",
       duration: "June 2025 - June 2026",
-      description: "Developed and maintained scalable backend services using RESTful APIs and SQL databases. Designed reusable backend components and optimized applications to improve scalability, reliability, and performance within an Agile environment.",
+      description: [
+        "Engineered full-stack web and mobile applications using ReactJS, React Native, Java, Spring Boot, REST APIs, MySQL, and MongoDB for multiple client projects.",
+        "Designed reusable frontend components and integrated RESTful services to build scalable, responsive, and maintainable business applications.",
+        "Contributed to the complete software development lifecycle by implementing new features, debugging production issues, optimizing application performance, and validating software quality.",
+        "Collaborated with developers, designers, and stakeholders to translate business requirements into reliable technical solutions using Agile methodologies.",
+        "Applied object-oriented programming principles, version control with Git, and modular development practices to deliver high-quality software efficiently."
+      ],
     }
   ];
 
@@ -58,9 +64,17 @@ const Experience = () => {
                     {exp.company}
                   </div>
                   
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
-                    {exp.description}
-                  </p>
+                  {Array.isArray(exp.description) ? (
+                    <ul className="list-disc list-outside ml-4 text-gray-600 dark:text-gray-400 leading-relaxed text-sm space-y-2 mt-2">
+                      {exp.description.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                      {exp.description}
+                    </p>
+                  )}
                 </SpotlightCard>
               </div>
             </motion.div>
