@@ -110,7 +110,7 @@ const Projects = () => {
                     
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
-                      {project.techStack.frontend.slice(0, 4).map((t, i) => (
+                      {Object.values(project.techStack).flat().map((t, i) => (
                         <span key={i} className="text-xs font-medium px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full">
                           {t}
                         </span>
