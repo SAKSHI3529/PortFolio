@@ -1,70 +1,125 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Code2, Layout, Server, Database, BrainCircuit, Cloud, Cpu } from 'lucide-react';
 
 const Skills = () => {
-  const allSkills = [
-    "React", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", 
-    "Framer Motion", "GSAP", "Node.js", "Express", "Python", "Java", 
-    "Spring Boot", "MySQL", "MongoDB", "AWS", "Git", "Docker"
+  const skillCategories = [
+    {
+      title: "Languages",
+      icon: <Code2 className="w-5 h-5 text-accent group-hover:text-white transition-colors" />,
+      skills: ["Java", "JavaScript", "Python", "TypeScript", "SQL", "C++"],
+    },
+    {
+      title: "Frontend",
+      icon: <Layout className="w-5 h-5 text-accent group-hover:text-white transition-colors" />,
+      skills: ["React.js", "Next Js", "React Hooks", "HTML5", "CSS3", "Tailwind CSS", "Redux Toolkit", "Vite"],
+    },
+    {
+      title: "Backend",
+      icon: <Server className="w-5 h-5 text-accent group-hover:text-white transition-colors" />,
+      skills: ["Spring Boot", "Node.js", "Express.js", "FastAPI", "REST APIs", "API Integration"],
+    },
+    {
+      title: "Databases",
+      icon: <Database className="w-5 h-5 text-accent group-hover:text-white transition-colors" />,
+      skills: ["MySQL", "MongoDB", "SQL Server", "PostgreSQL"],
+    },
+    {
+      title: "AI / ML",
+      icon: <BrainCircuit className="w-5 h-5 text-accent group-hover:text-white transition-colors" />,
+      skills: ["Generative AI", "LLM APIs", "RAG", "Prompt Engineering", "Machine Learning", "PyTorch", "scikit-learn"],
+    },
+    {
+      title: "Cloud / DevOps",
+      icon: <Cloud className="w-5 h-5 text-accent group-hover:text-white transition-colors" />,
+      skills: ["AWS", "Docker", "Git", "GitHub", "CI/CD Fundamentals"],
+    },
+    {
+      title: "Core",
+      icon: <Cpu className="w-5 h-5 text-accent group-hover:text-white transition-colors" />,
+      skills: ["OOP", "Data Structures & Algorithms", "DBMS", "Debugging", "Testing", "SDLC", "Agile/Scrum", "Problem Solving"],
+    }
   ];
 
-  // Split skills into two rows for the marquee
-  const row1 = allSkills.slice(0, Math.ceil(allSkills.length / 2));
-  const row2 = allSkills.slice(Math.ceil(allSkills.length / 2));
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
-  const MarqueeRow = ({ items, direction = 1 }) => {
-    return (
-      <div className="flex overflow-hidden relative w-full py-4 whitespace-nowrap mask-image-gradient">
-        <motion.div
-          className="flex gap-6 min-w-full"
-          animate={{
-            x: direction > 0 ? [0, -1035] : [-1035, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-            repeatType: "loop"
-          }}
-        >
-          {/* Double the items for seamless loop */}
-          {[...items, ...items, ...items, ...items].map((skill, index) => (
-            <div
-              key={index}
-              className="px-6 py-3 rounded-full text-sm font-medium border border-gray-200 dark:border-white/10 bg-white/50 dark:bg-charcoal/50 backdrop-blur-md text-gray-700 dark:text-gray-300 shadow-sm transition-colors hover:border-accent dark:hover:border-accent hover:text-accent dark:hover:text-accent cursor-pointer flex-shrink-0"
-            >
-              {skill}
-            </div>
-          ))}
-        </motion.div>
-      </div>
-    );
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100, damping: 12 }
+    }
   };
 
   return (
-    <section id="skills" className="py-24 bg-gray-50 dark:bg-black/20 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 mb-12">
-        <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
-            Technical Arsenal
-          </h2>
-          <div className="h-1 w-20 bg-accent rounded-full mx-auto"></div>
-        </div>
+    <section id="skills" className="py-24 bg-gray-50 dark:bg-black relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-50 dark:opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-0 left-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl opacity-50 dark:opacity-20"></div>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto flex flex-col gap-4 relative">
-        {/* CSS Mask for fading edges */}
-        <div className="absolute inset-0 z-10 pointer-events-none" style={{
-          background: 'linear-gradient(to right, var(--bg-color) 0%, transparent 15%, transparent 85%, var(--bg-color) 100%)'
-        }}>
-          <style>{`
-            :root { --bg-color: #f9fafb; }
-            .dark { --bg-color: #1a1a1a; } /* Approx charcoal match */
-          `}</style>
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 mb-4 inline-block"
+          >
+            Tech Stack
+          </motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="h-1.5 w-24 bg-gradient-to-r from-accent to-blue-400 rounded-full mx-auto"
+          ></motion.div>
         </div>
 
-        <MarqueeRow items={row1} direction={1} />
-        <MarqueeRow items={row2} direction={-1} />
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {skillCategories.map((category, idx) => (
+            <motion.div 
+              key={idx} 
+              variants={itemVariants}
+              className={`p-6 rounded-2xl border border-transparent hover:border-accent/40 dark:hover:border-accent/40 transition-all duration-300 group hover:-translate-y-1 ${idx === 6 ? 'md:col-span-2 lg:col-span-1 lg:col-start-2' : ''}`}
+            >
+              <div className="flex items-center gap-4 mb-5">
+                <div className="p-3 bg-accent/10 dark:bg-white/5 rounded-xl group-hover:bg-accent group-hover:shadow-lg group-hover:shadow-accent/30 transition-all duration-300">
+                  {category.icon}
+                </div>
+                <h3 className="text-xl font-heading font-semibold text-gray-900 dark:text-gray-100 group-hover:text-accent dark:group-hover:text-accent transition-colors">
+                  {category.title}
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2.5">
+                {category.skills.map((skill, skillIdx) => (
+                  <span 
+                    key={skillIdx}
+                    className="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-gray-50 dark:bg-white/5 text-gray-700 dark:text-gray-300 border border-gray-100 dark:border-white/5 hover:bg-accent hover:text-white dark:hover:bg-accent dark:hover:text-white hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
